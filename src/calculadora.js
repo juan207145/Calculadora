@@ -2,17 +2,17 @@ import { useState } from "react";
 import Button from "./boton";
 
 function Calculator() {
-  const [input, setContador] = useState("");
+  const [contador, setContador] = useState("");
   const [expression, setExpression] = useState("");
 
 
   function addValue(value) {
-    setContador(input + value);
+    setContador(contador + value);
   }
 
     function escribirOperador(op) {
-    if (input !== "") {
-      setExpression(expression + input + op);
+    if (contador !== "") {
+      setExpression(expression + contador + op);
       setContador("");
     }
   }
@@ -24,7 +24,7 @@ function Calculator() {
 
   function calculate() {
     try {
-      const operacion = expression + input;
+      const operacion = expression + contador;
       const result = eval(operacion);
       setContador(result.toString());
       setExpression("");
@@ -36,7 +36,7 @@ function Calculator() {
 
   return (
     <div className="calculator">
-      <div className="display">{input === "" ? " " : input}</div>
+      <div className="display">{contador === "" ? " " : contador}</div>
 
       <div className="buttons">
 
